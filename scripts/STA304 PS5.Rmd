@@ -18,6 +18,8 @@ library(here)
 
 Keywords: COVID-19; Contact tracing; Sampling bias; Simulation
 
+Code and data for this analysis can be found at https://github.com/anniecollins/sta304-ps5.
+
 ## Introduction
 
 Contact tracing is an integral component of public health response to the COVID-19 pandemic. It is the process through which individuals who have had close contact with someone infected with the virus are identified and monitored to assess other potential cases and limit further infections (Public Health Ontario, 2020). This is much easier to do in some contexts than in others. Individuals operating in institutional or congregate settings (schools, universities, long-term medical care facilities, retirement homes, prisons, etc.) often have some or all of their location or personal contact history well documented due to the administration of these institutions. Other sources of transmission, such as community spread, casual events, travel, and outpatient healthcare, are significantly harder to trace due to a lack of documentation as well as personal recall bias. 
@@ -42,7 +44,7 @@ source_sum$prop <- source_sum$count * 100/ sum(source_sum$count)
 kable(source_sum, col.names = c("Source of Infection", "Total Cases", "Percent of Total"), digits = 1)
 ```
 
-
+\newpage
 **Figure 1**
 ```{r sourceplot,  out.width="50%", fig.align="center"}
 include_graphics(here("STA304-PS5/outputs/figures/source_of_infection_graph.pdf"))
@@ -60,7 +62,6 @@ include_graphics(here("STA304-PS5/outputs/figures/daily_cases_sept.pdf"))
 
 Examining daily case numbers throughout the pandemic (Figure 2), we see that the number of outbreak associated cases generally follows the same trends as the total cases over any given time period, with the exception of recent months. Since September, the total number of cases has drastically and consistently increased, while those resulting from outbreak settings appear to have increased in variance while maintaining relatively low overall case numbers. In contrast, cases with unknown or missing sources of infection increased drastically at the beginning of October hand have maintained high daily totals since. These trends are further highlighted in Figure 3, where TPH data has been restricted to cases reported on or after September 1. It is clear that the trend in outbreak-associated cases displays relatively little increase in comparison to all cases reported and those with missing or unknown data, meaning the proportion of cases traced to outbreak settings has generally decreased since September in comparison to earlier in the pandemic (the first wave). It also appears as though fewer cases are being traced (or traced effectively) with the increase in overall cases.
 
-\newpage
 **Figure 4 & 5**
 ```{r proportionoutbreakplot, out.width="50%"}
 include_graphics(here("STA304-PS5/outputs/figures/outbreak_prop.pdf"))
@@ -71,7 +72,7 @@ include_graphics(here("STA304-PS5/outputs/figures/outbreak_prop_sept.pdf"))
 
 Figures 4 and 5 display trends in the proportion of total cases resulting from outbreak or unknown settings since January and since September. The average proportion of outbreak associated cases since September is 13.3 percent (compared to 20.4 percent overall). There has also been noticeable overall decrease in the proportion of cases resulting from outbreak settings, with peak values occurring in April and May despite peak total case numbers occurring in November and December. In contrast, the proportion of unknown sources of infection has increased dramatically, with a mean of 36.7 percent since October compared to 13.7 percent overall.
 
-
+\newpage
 **Figure 6**
 ```{r positivecases, out.width="50%", fig.align="center"}
 include_graphics(here("STA304-PS5/outputs/figures/positive_tests.pdf"))
@@ -87,7 +88,7 @@ The following simulations are intended to model the process of contact tracing a
 
 Each individual has a 5 percent chance of being infected independently of others in the sample, and these individuals have all been identified through public health testing procedures. 5 percent was chosen as the infection rate as it is similar to but slightly lower than the mean percent of positive tests observed by TPH in both November and December. As mentioned previously, the percent of positive tests is unlikely to represent the true rate of infection population-wide which is why a slightly lower infection rate was chosen for these simulations. The sampling, infection, and tracing process is simulated 50,000 times per scenario to gain insight into the resulting distributions of measurements, and all simulations were modeled using R software.
 
-
+\newpage
 **Table 2**
 ```{r simulation-table}
 setting <- c("Institution", "Casual or Community", "Total")
@@ -121,7 +122,6 @@ This two-stage contact tracing process results in a number of COVID-19 cases tha
 
 Figure 7 displays the results of 20 percent efficacy in tracing casual contacts and community transmission. While the mean and modal true proportion of cases resulting from institutional settings is approximately 10 percent of all cases, the observed distribution has a much higher variance about a mean of approximately 35.5 percent. This means that if close contact and community-based infections are traced with an accuracy of 20 percent while institutional cases are traced with an accuracy of 100 percent, institutional cases could be measured to account for over triple their true proportion of total cases (and often even more).
 
-\newpage
 **Figure 7**
 ```{r simulation1, out.width="50%", echo=FALSE, fig.align="center"}
 include_graphics(here("STA304-PS5/outputs/simulations/simulation1-plot.pdf"))
@@ -132,7 +132,7 @@ If the accuracy of tracing is increased to 50 percent (Figure 8), the mean obser
 
 Due to the nature of the contact tracing process, it is much more difficult to connect individuals to small or casual events, and the resulting cases are hidden from statistics concerning sources of infection on a sample scale. This increases the observed proportion of cases from settings that are easy to trace, like those resulting from institutional settings. As the accuracy of contact tracing for casual and community settings increases between simulations, the proportion of cases traced to institutional settings approaches the true distribution. Although it is unlikely that a contact tracing accuracy of 100 percent for institutions is attainable, it is true that this subset of cases is more easily traced than those from other sources, and thus the observed number of COVID-19 cases resulting from institutional settings is likely to be inflated regardless of contact tracing methodology.
 
-
+\newpage
 **Figure 8**
 ```{r simulation2, out.width="50%", echo=FALSE, fig.align="center"}
 include_graphics(here("STA304-PS5/outputs/simulations/simulation2-plot.pdf"))

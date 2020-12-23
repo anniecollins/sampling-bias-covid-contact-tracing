@@ -33,7 +33,7 @@ props1 <- pbsapply(1:50000, function(m) {
   # Secondary contact tracing
   event_trace_counts <- table(ppl$event[ppl$traced])
   # Find the events where two individual cases were traced to the same event
-  events_traced <- names(event_trace_counts)[event_trace_counts >= SECONDARY_TRACE_THRESHOLD]
+  events_traced <- names(event_trace_counts)[event_trace_counts >= 2]
   # If someone at the event was infected AND the event had two or more cases linked to it, consider it traced
   # (Will result in more cases traced since more infected people that were previously untraced will be linked to individual events)
   ppl$traced[ppl$infected & ppl$event %in% events_traced] <- TRUE
