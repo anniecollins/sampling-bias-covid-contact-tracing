@@ -69,7 +69,7 @@ plot1 <- ggplot(props1_df) +
     "Proportion of infections resulting from institutional transmission",
     "Institutional contact tracing with 100% accuracy, other contact tracing with 20% accuracy"
   )
-ggsave("outputs/figures/simulation1-plot.pdf", plot = plot1)
+ggsave("outputs/simulations/simulation1-plot.pdf", plot = plot1)
 
 
 # INSTITUTIONAL EXAMPLE 2
@@ -138,7 +138,7 @@ plot2 <- ggplot(props1_df) +
     "Proportion of infections resulting from institutional transmission",
     "Institutional contact tracing with 100% accuracy, other contact tracing with 50% accuracy"
   )
-ggsave("outputs/figures/simulation2-plot.pdf", plot = plot2)
+ggsave("outputs/simulations/simulation2-plot.pdf", plot = plot2)
 
 
 # INSTITUTIONAL EXAMPLE 3
@@ -207,4 +207,4 @@ plot3 <- ggplot(props1_df) +
     "Proportion of infections resulting from institutional transmission",
     "Institutional contact tracing with 100% accuracy, other contact tracing with 80% accuracy"
   )
-ggsave("outputs/figures/simulation3-plot.pdf", plot = plot3)
+ggsave("outputs/simulations/simulation3-plot.pdf", plot = plot3)
