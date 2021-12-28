@@ -1,5 +1,3 @@
-# STA304 - PS5
-
 # Sampling Bias in COVID-19 Contact Tracing Leads to Overestimation of Case Numbers from Institutional and Congregate Settings
 In this paper, I simulate a two-stage contact tracing process at various accuracies to examine the impact of sampling bias on COVID-19 case data in Toronto, Canada.
 
