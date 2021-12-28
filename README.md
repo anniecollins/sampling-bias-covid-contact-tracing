@@ -10,7 +10,7 @@ The "outputs" folder contains the PDF images used in the final RMarkdown output.
 
 The "scripts" folder contains the code to produce the simulation results and plots, to clean and produce the summary plots for the data in the "data" file, and the RMarkdown file for the final paper PDF.
 
-# Reproducability
+# Reproducibility
 - Ensure all file names and file paths in the scripts match the locations and names of the files you wish to use.
 - Ensure that any data taken directly from the source (ie. City of Toronto Open Data Portal or OLIS) corresponds to the dates considered in the report. Alternatively, use the data provided in the "data" folder.
 - Run the summary plots and contact tracing simulations code in "scripts" first before running the .Rmd file to generate the report.
